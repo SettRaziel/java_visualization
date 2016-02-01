@@ -1,0 +1,10 @@
+# intellij files
+.idea/
+/out/
+*.iml
+
+# dev folder
+/dev/
+
+# source test folder
+/src/test/
