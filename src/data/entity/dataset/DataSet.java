@@ -5,7 +5,7 @@ package data.entity.dataset;
  * @author Benjamin Held.
  */
 public abstract class DataSet<T> {
-    private T[][] values;
+    T[][] values;
 
     public DataSet(T[][] data) {
         this.values = data;
