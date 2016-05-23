@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 /**
  * Static class to read content from an external csv-file or csv-resource.
- * @author Benjamin Held
+ * @author Benjamin Held (02-07-2016)
+ * @since 05-23-2016
+ * @version 0.1.0
  */
 public class CSV_Loader {
 
@@ -44,7 +46,7 @@ public class CSV_Loader {
 
     /**
      * Static method to load a csv-resource with comma separator
-     * @param csvResource resourcename
+     * @param csvResource resource name
      * @return Arraylist of String[] where each line is stores in one String[]
      * @throws FileNotFoundException if the given file could not be found
      * @throws IOException if an error occurs while opening or reading the content of the file
@@ -79,15 +81,14 @@ public class CSV_Loader {
      * Static method to close a used BufferedReader
      * @param br the BufferedReader that should be closed
      * @param resource a string with the name of the resource
-     * @throws IOException is the closing of the BufferedReader fails
      */
-    private static void closeBufferedReader(BufferedReader br, String resource) throws IOException {
+    private static void closeBufferedReader(BufferedReader br, String resource) {
         if (br != null) {
             try {
                 br.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                throw new IOException("IOError while trying to close resource: " + resource);
+                System.out.println("IOError while trying to close resource: " + resource);
             }
         }
     }

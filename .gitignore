@@ -8,3 +8,6 @@
 
 # source test folder
 /src/test/
+
+# documentation folder
+/doc
