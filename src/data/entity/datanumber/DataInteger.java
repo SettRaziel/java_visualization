@@ -2,7 +2,9 @@ package data.entity.datanumber;
 
 /**
  * Wrapper class for Integer
- * @author Benjamin Held
+ * @author Benjamin Held (04-02-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public class DataInteger extends DataNumber<Integer> {
     public DataInteger(Integer attribute) {

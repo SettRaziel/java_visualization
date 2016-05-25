@@ -4,7 +4,9 @@ import data.entity.datanumber.DataNumber;
 
 /**
  * Helperclass to provide Information of the Datadomain und Data Range Created
- * @author Benjamin Held
+ * @author Benjamin Held (02-25-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public class DataDomain<T extends DataNumber> {
     /** name of the data variable / label for the axis annotation */

@@ -2,7 +2,9 @@ package data.entity.datanumber;
 
 /**
  * Wrapper class for Double
- * @author Benjamin Held
+ * @author Benjamin Held (03-26-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public class DataDouble extends DataNumber<Double> {
     public DataDouble(Double attribute) {

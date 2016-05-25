@@ -5,7 +5,9 @@ import data.DataType;
 /**
  * Metadata for the HashMap of the DataRepository to provide keys for the
  * available data.
- * @author Benjamin Held
+ * @author Benjamin Held (02-24-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public class MetaData {
     /** name of the data set */

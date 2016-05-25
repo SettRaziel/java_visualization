@@ -2,7 +2,9 @@ package data.entity.datanumber;
 
 /**
  * Wrapper class for the possible number formats of the dimensions of the data sets
- * @author Benjamin Held
+ * @author Benjamin Held (03-03-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public abstract class DataNumber<T> {
     /** wrapped attribute */

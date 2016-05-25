@@ -7,7 +7,9 @@ import java.util.Set;
 
 /**
  * Class to store a series of data sets.
- * @author Benjamin Held
+ * @author Benjamin Held (04-30-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public class DataSeries {
     /** HashMap to store a series of data */

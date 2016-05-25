@@ -5,7 +5,9 @@ import java.time.Period;
 
 /**
  * Wrapper class for LocalDate
- * @author Benjamin Held
+ * @author Benjamin Held (03-16-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public class DataDate extends DataNumber<LocalDate> {
     public DataDate(LocalDate attribute) {
@@ -13,7 +15,7 @@ public class DataDate extends DataNumber<LocalDate> {
     }
 
     public LocalDate increment() {
-        attribute = attribute.plus( Period.ofYears(1));
+        attribute = attribute.plus(Period.ofYears(1));
         return attribute;
     }
     public LocalDate decrement() {

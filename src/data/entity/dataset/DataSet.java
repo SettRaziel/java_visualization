@@ -2,7 +2,9 @@ package data.entity.dataset;
 
 /**
  * Basic entity class to represent a dataset.
- * @author Benjamin Held.
+ * @author Benjamin Held (04-17-2016)
+ * @version 0.1.0
+ * @since 05-25-2016
  */
 public abstract class DataSet<T> {
     T[][] values;
