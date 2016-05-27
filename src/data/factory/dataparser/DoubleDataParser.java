@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 /**
  * Parser class to read a data set of double formatted data values
- * @author Benjamin Held
+ * @author Benjamin Held (05-18-2016)
+ * @version 0.1.0
+ * @since 05-27-2016
  */
 public class DoubleDataParser extends DataFactory {
 

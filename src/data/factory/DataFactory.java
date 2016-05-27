@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 /**
  * Static Factory to parse the read data
- * @author Benjamin Held
+ * @author Benjamin Held (05-13-2016)
+ * @version 0.1.0
+ * @since 05-27-2016
  */
 public abstract class DataFactory {
     public static DataSeries parseData(MetaData meta_data, ArrayList<String[]> input)

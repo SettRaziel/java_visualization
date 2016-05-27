@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 /**
  * Static factory class to create meta data from given input data
- * @author Benjamin Held
+ * @author Benjamin Held (05-15-2016)
+ * @version 0.1.0
+ * @since 05-27-2016
  */
 public class MetaDataFactory {
     public static MetaData parseMetaData(ArrayList<String[]> input) throws IllegalArgumentException {
