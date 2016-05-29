@@ -12,7 +12,9 @@ import java.util.HashMap;
 
 /**
  * Singleton class to serve as a storage for the data series
- * @author Benjamin Held
+ * @author Benjamin Held (05-16-2016)
+ * @since 05-29-2016
+ * @version 0.1.0
  */
 public class DataRepository {
     private volatile static DataRepository instance;
@@ -24,7 +26,7 @@ public class DataRepository {
     }
 
     /**
-     * Singletonmethod for the instance
+     * singleton method for the instance
      * @return singleton instance
      */
     public synchronized static DataRepository getInstance() {
@@ -34,6 +36,10 @@ public class DataRepository {
         return instance;
     }
 
+    /**
+     * method to add the content of the provided filename as a new {@link DataSeries}
+     * @param filename the filepath
+     */
     public void addDataSeries(String filename) {
         try {
             ArrayList<String[]> raw_data = CSV_Loader.load_single_line(filename);
@@ -50,6 +56,11 @@ public class DataRepository {
         }
     }
 
+    /**
+     * helper method to read the meta data from the beginning of a file
+     * @param data the string list with the meta data information
+     * @return the arraylist with the required entries for a {@link MetaData} object
+     */
     private ArrayList<String[]> extractMetaData(ArrayList<String[]> data) {
         ArrayList<String[]> sub_data = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
