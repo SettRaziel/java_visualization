@@ -6,8 +6,8 @@ import java.time.Period;
 /**
  * Wrapper class for LocalDate
  * @author Benjamin Held (03-16-2016)
- * @version 0.1.0
- * @since 05-25-2016
+ * @version 0.2.0
+ * @since 06-2-2016
  */
 public class DataDate extends DataNumber<LocalDate> {
     public DataDate(LocalDate attribute) {
@@ -24,12 +24,27 @@ public class DataDate extends DataNumber<LocalDate> {
     }
 
     public double getDelta(LocalDate value) {
-        int delta_year = attribute.minus(Period.ofYears(value.getYear())).getYear();
-        int delta_day = attribute.minus(Period.ofDays(value.getDayOfYear())).getDayOfYear();
-        return (delta_year + delta_day / 365.25);
+        int deltaYear = attribute.minus(Period.ofYears(value.getYear())).getYear();
+        int deltaDay = attribute.minus(Period.ofDays(value.getDayOfYear())).getDayOfYear();
+        return (deltaYear + deltaDay / 365.25);
     }
 
     public DataDate clone() {
         return new DataDate(attribute);
+    }
+
+    @Override
+    public boolean isGreater(DataNumber<LocalDate> value) {
+        return this.attribute.toEpochDay() > value.attribute.toEpochDay();
+    }
+
+    @Override
+    public boolean isLesser(DataNumber<LocalDate> value) {
+        return this.attribute.toEpochDay() < value.attribute.toEpochDay();
+    }
+
+    @Override
+    public boolean isEqual(DataNumber<LocalDate> value) {
+        return this.attribute.toEpochDay() == value.attribute.toEpochDay();
     }
 }
