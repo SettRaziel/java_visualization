@@ -13,8 +13,8 @@ import java.util.HashMap;
 /**
  * Singleton class to serve as a storage for the data series
  * @author Benjamin Held (05-16-2016)
- * @since 05-29-2016
- * @version 0.1.0
+ * @since 06-02-2016
+ * @version 0.1.1
  */
 public class DataRepository {
     private volatile static DataRepository instance;
@@ -39,21 +39,24 @@ public class DataRepository {
     /**
      * method to add the content of the provided filename as a new {@link DataSeries}
      * @param filename the filepath
+     * @return the {@link MetaData} object that was created for the {@link DataSeries}
      */
-    public void addDataSeries(String filename) {
+    public MetaData addDataSeries(String filename) {
         try {
             ArrayList<String[]> raw_data = CSV_Loader.load_single_line(filename);
-            MetaData meta_data = MetaDataFactory.parseMetaData(extractMetaData(raw_data));
+            MetaData metaData = MetaDataFactory.parseMetaData(extractMetaData(raw_data));
             raw_data.subList(0,4).clear();
-            DataSeries data = DataFactory.parseData(meta_data, raw_data);
+            DataSeries data = DataFactory.parseData(metaData, raw_data);
 
-            repository.put(meta_data, data);
+            repository.put(metaData, data);
 
             System.out.println("Data was added to repository.");
+            return metaData;
         } catch (IOException | ReflectiveOperationException e) {
             System.out.println(e.getMessage());
             System.out.println("Data was not added to repository.");
         }
+        return null;
     }
 
     /**
@@ -62,11 +65,11 @@ public class DataRepository {
      * @return the arraylist with the required entries for a {@link MetaData} object
      */
     private ArrayList<String[]> extractMetaData(ArrayList<String[]> data) {
-        ArrayList<String[]> sub_data = new ArrayList<>();
+        ArrayList<String[]> subData = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            sub_data.add(data.get(i));
+            subData.add(data.get(i));
         }
 
-        return sub_data;
+        return subData;
     }
 }
