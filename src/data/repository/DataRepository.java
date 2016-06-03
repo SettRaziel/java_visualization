@@ -13,8 +13,8 @@ import java.util.HashMap;
 /**
  * Singleton class to serve as a storage for the data series
  * @author Benjamin Held (05-16-2016)
- * @since 06-02-2016
- * @version 0.1.1
+ * @since 06-03-2016
+ * @version 0.1.2
  */
 public class DataRepository {
     private volatile static DataRepository instance;
@@ -57,6 +57,15 @@ public class DataRepository {
             System.out.println("Data was not added to repository.");
         }
         return null;
+    }
+
+    /**
+     * method to retrieve the {@link DataSeries} to the corresponding {@link MetaData}
+     * @param metaData the provided {@link MetaData}
+     * @return the {@link DataSeries} that belongs to the provided meta data or null if no object can be found
+     */
+    public DataSeries getDataSeriesToMetaData(MetaData metaData) {
+        return this.repository.get(metaData);
     }
 
     /**
