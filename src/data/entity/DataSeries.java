@@ -8,18 +8,20 @@ import java.util.Set;
 /**
  * Class to store a series of data sets.
  * @author Benjamin Held (04-30-2016)
- * @version 0.1.0
- * @since 05-25-2016
+ * @version 0.1.1
+ * @since 06-05-2016
  */
 public class DataSeries {
     /** HashMap to store a series of data */
-    private HashMap<DataNumber,DataSet> data_list;
+    private HashMap<DataNumber, DataSet> dataList;
+    private DataNumber max = null;
+    private DataNumber min = null;
 
     /**
      * Constructor
      */
     public DataSeries() {
-        data_list = new HashMap<>();
+        dataList = new HashMap<>();
     }
 
     /**
@@ -28,20 +30,39 @@ public class DataSeries {
      * @param data data set which should be stored
      */
     public void setData(DataNumber key, DataSet data) {
-        data_list.put(key, data);
+        dataList.put(key, data);
+        determineExtrema(data);
     }
 
-
     public DataSet getDataForKey(DataNumber key) {
-        return data_list.get(key);
+        return dataList.get(key);
     }
 
     public Set<DataNumber> getKeyset() {
-        return data_list.keySet();
+        return dataList.keySet();
     }
 
-    public void printDatasetForKey(DataNumber key) {
-        DataSet data = data_list.get(key);
-        data.print();
+    public DataNumber getMax() {
+        return max;
     }
+
+    public DataNumber getMin() {
+        return min;
+    }
+
+    private void determineExtrema(DataSet data) {
+        if (max == null && min == null) {
+            max = data.getMaxValue();
+            min = data.getMinValue();
+        } else {
+            if (data.getMaxValue().isGreater(max)) {
+                max = data.getMaxValue();
+            }
+            if (data.getMinValue().isLesser(min)) {
+                min = data.getMinValue();
+            }
+        }
+
+    }
+
 }
