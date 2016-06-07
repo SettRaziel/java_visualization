@@ -1,8 +1,9 @@
 # Java Visualizer
 
 Java program to read a series of datasets from a csv-formatted file and
-visualize the data as terminal output. The first line of data will be drawn
-as the bottom line in the visualized output.
+visualize the data in the provided graphical user interface. At the moment
+it is only possible to read a csv-formatted file. A basic graphical user
+interface to draw a dataset is the next step.
 
 More details follow later.
 
