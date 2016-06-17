@@ -8,11 +8,11 @@ package data;
  */
 public class DataType {
     /** name of data measuring type */
-    private String data_name;
+    private String dataName;
     /** attribute to describe the type of the unit */
-    private String data_type;
+    private String dataType;
     /** the measuring unit belonging to the data type; in SI-units if possible */
-    private String measuring_unit;
+    private String measuringUnit;
 
     /**
      * constructor
@@ -21,20 +21,20 @@ public class DataType {
      * @param unit the measuring unit of the data type
      */
     public DataType(String name, String type, String unit) {
-        this.data_name = name;
-        this.data_type = type;
-        this.measuring_unit = unit;
+        this.dataName = name;
+        this.dataType = type;
+        this.measuringUnit = unit;
     }
 
     public String getDataName() {
-        return data_name;
+        return dataName;
     }
 
     public String getType() {
-        return data_type;
+        return dataType;
     }
 
     public String getMeasuringUnit() {
-        return measuring_unit;
+        return measuringUnit;
     }
 }
