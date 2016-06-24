@@ -3,61 +3,61 @@ package data.entity;
 import data.entity.datanumber.DataNumber;
 
 /**
- * Helperclass to provide Information of the Datadomain und Data Range Created
+ * Helperclass to provide Information of the data domain und data range
  * @author Benjamin Held (02-25-2016)
- * @version 0.1.0
- * @since 05-25-2016
+ * @version 0.1.1
+ * @since 06-24-2016
  */
 public class DataDomain<T extends DataNumber> {
     /** name of the data variable / label for the axis annotation */
-    private String data_label;
+    private String dataLabel;
     /** lower interval value of the data */
-    private T lower_boundary;
+    private T lowerBoundary;
     /** upper interval value of the data */
-    private T upper_boundary;
+    private T upperBoundary;
     /** step range between the data */
-    private Double step_range;
+    private Double stepRange;
 
     /**
      * constructor
      * 
-     * @param data_label data name
-     * @param lower_boundary lower boundary
-     * @param upper_boundary upper boundary
-     * @param step_range step range
+     * @param dataLabel data name
+     * @param lowerBoundary lower boundary
+     * @param upperBoundary upper boundary
+     * @param stepRange step range
      */
-    public DataDomain(String data_label, T lower_boundary, T upper_boundary, double step_range) {
-        this.data_label = data_label;
-        this.lower_boundary = lower_boundary;
-        this.upper_boundary = upper_boundary;
-        this.step_range = step_range;
+    public DataDomain(String dataLabel, T lowerBoundary, T upperBoundary, double stepRange) {
+        this.dataLabel = dataLabel;
+        this.lowerBoundary = lowerBoundary;
+        this.upperBoundary = upperBoundary;
+        this.stepRange = stepRange;
     }
 
     public String getDataLabel() {
-        return data_label;
+        return dataLabel;
     }
 
     public Class getDomainClass() {
-        return lower_boundary.getClass();
+        return lowerBoundary.getClass();
     }
 
     public Class getStepClass() {
-        return step_range.getClass();
+        return stepRange.getClass();
     }
 
     public T getLowerBoundary() {
-        return lower_boundary;
+        return lowerBoundary;
     }
 
     public T getUpperBoundary() {
-        return upper_boundary;
+        return upperBoundary;
     }
 
     public Double getDelta() {
-        return upper_boundary.getDelta(lower_boundary.getNumber());
+        return upperBoundary.getDelta(lowerBoundary.getNumber());
     }
 
     public Double getStepRange() {
-        return step_range;
+        return stepRange;
     }
 }

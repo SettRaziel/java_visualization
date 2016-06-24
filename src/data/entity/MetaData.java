@@ -3,24 +3,23 @@ package data.entity;
 import data.DataType;
 
 /**
- * Metadata for the HashMap of the DataRepository to provide keys for the
- * available data.
+ * Metadata for the HashMap of the DataRepository to provide keys for the available data
  * @author Benjamin Held (02-24-2016)
- * @version 0.1.0
- * @since 05-25-2016
+ * @version 0.1.1
+ * @since 06-24-2016
  */
 public class MetaData {
     /** name of the data set */
-    private DataType data_type;
+    private DataType dataType;
     /** meta data of the x-axis data */
-    private DataDomain x_domain;
+    private DataDomain xDomain;
     /** meta data of the y-axis data */
-    private DataDomain y_domain;
+    private DataDomain yDomain;
     /** meta data of the z-axis data */
-    private DataDomain z_domain;
+    private DataDomain zDomain;
 
     /** global extreme values of the assigned data set  */
-    private double minimal_data_value, maximal_data_value;
+    private double minimalDataValue, maximalDataValue;
 
     /**
      * constructor
@@ -31,43 +30,43 @@ public class MetaData {
      * @param z meta data of the z-axis
      */
     public MetaData(DataType type, DataDomain x, DataDomain y, DataDomain z) {
-        this.data_type = type;
-        this.x_domain = x;
-        this.y_domain = y;
-        this.z_domain = z;
-        this.minimal_data_value = 0;
-        this.maximal_data_value = 0;
+        this.dataType = type;
+        this.xDomain = x;
+        this.yDomain = y;
+        this.zDomain = z;
+        this.minimalDataValue = 0;
+        this.maximalDataValue = 0;
     }
 
     public DataType getNameOfData() {
-        return data_type;
+        return dataType;
     }
 
     public DataDomain getDomainObjectInX() {
-        return x_domain;
+        return xDomain;
     }
 
     public DataDomain getDomainObjectInY() {
-        return y_domain;
+        return yDomain;
     }
 
     public DataDomain getDomainObjectInZ() {
-        return z_domain;
+        return zDomain;
     }
 
     public void setMinimalValue(double value) {
-        this.minimal_data_value = value;
+        this.minimalDataValue = value;
     }
 
     public double getMinimalValue() {
-        return minimal_data_value;
+        return minimalDataValue;
     }
 
     public void setMaximalValue(double value) {
-        this.maximal_data_value = value;
+        this.maximalDataValue = value;
     }
 
     public double getMaximalValue() {
-        return maximal_data_value;
+        return maximalDataValue;
     }
 }
