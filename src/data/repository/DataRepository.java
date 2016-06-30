@@ -5,16 +5,18 @@ import data.entity.DataSeries;
 import data.factory.DataFactory;
 import data.factory.MetaDataFactory;
 import data.loader.CSV_Loader;
+import exception.MetaDataException;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Singleton class to serve as a storage for the data series
  * @author Benjamin Held (05-16-2016)
- * @since 06-03-2016
- * @version 0.1.2
+ * @since 06-30-2016
+ * @version 0.1.3
  */
 public class DataRepository {
     private volatile static DataRepository instance;
@@ -41,9 +43,9 @@ public class DataRepository {
      * @param filename the filepath
      * @return the {@link MetaData} object that was created for the {@link DataSeries}
      */
-    public MetaData addDataSeries(String filename) {
+    public MetaData addDataSeries(String filename) throws MetaDataException {
         try {
-            ArrayList<String[]> raw_data = CSV_Loader.load_single_line(filename);
+            ArrayList<String[]> raw_data = CSV_Loader.loadSingleLine(filename);
             MetaData metaData = MetaDataFactory.parseMetaData(extractMetaData(raw_data));
             raw_data.subList(0,4).clear();
             DataSeries data = DataFactory.parseData(metaData, raw_data);
@@ -66,6 +68,14 @@ public class DataRepository {
      */
     public DataSeries getDataSeriesToMetaData(MetaData metaData) {
         return this.repository.get(metaData);
+    }
+
+    /**
+     * method to retrieve all {@link MetaData} objects currently stored in the repository
+     * @return a set of all currently stored {@link MetaData} objects
+     */
+    public Set<MetaData> getAllMetaDataEntries() {
+        return repository.keySet();
     }
 
     /**
