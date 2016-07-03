@@ -3,8 +3,8 @@ package data;
 /**
  * Entityclass to store information about the data type
  * @author Benjamin Held (02-14-2016)
- * @since 05-31-2016
- * @version 0.1.0
+ * @since 06-17-2016
+ * @version 0.1.1
  */
 public class DataType {
     /** name of data measuring type */

@@ -13,8 +13,8 @@ import java.util.ArrayList;
 /**
  * Parser class to read a data set of double formatted data values
  * @author Benjamin Held (05-18-2016)
- * @version 0.1.1
- * @since 06-06-2016
+ * @version 0.1.2
+ * @since 07-03-2016
  */
 public class DoubleDataParser extends DataFactory {
 
@@ -43,7 +43,6 @@ public class DoubleDataParser extends DataFactory {
                 }
                 starts_new_data_set = true;
                 j = 0;
-                System.out.println();
             } else {
                 if (starts_new_data_set) {
                     values = new DataDouble[strings.length][y_size];
