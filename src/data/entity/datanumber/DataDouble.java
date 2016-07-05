@@ -3,8 +3,8 @@ package data.entity.datanumber;
 /**
  * Wrapper class for Double
  * @author Benjamin Held (03-26-2016)
- * @version 0.2.0
- * @since 06-2-2016
+ * @version 0.2.1
+ * @since 07-05-2016
  */
 public class DataDouble extends DataNumber<Double> {
     public DataDouble(Double attribute) {
@@ -56,7 +56,16 @@ public class DataDouble extends DataNumber<Double> {
     }
 
     @Override
-    public boolean isEqual(DataNumber<Double> value) {
-        return this.attribute.equals(value.attribute);
+    public String toString() {
+        return attribute.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof DataDouble) {
+            DataDouble dataDouble = (DataDouble) o;
+            return attribute.equals(dataDouble.attribute);
+        }
+        return false;
     }
 }

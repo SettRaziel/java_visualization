@@ -3,8 +3,8 @@ package data.entity.datanumber;
 /**
  * Wrapper class for the possible number formats of the dimensions of the data sets
  * @author Benjamin Held (03-03-2016)
- * @version 0.2.0
- * @since 06-2-2016
+ * @version 0.2.1
+ * @since 07-05-2016
  */
 public abstract class DataNumber<T> {
     /** wrapped attribute */
@@ -64,5 +64,7 @@ public abstract class DataNumber<T> {
 
     public abstract boolean isLesser(DataNumber<T> value);
 
-    public abstract boolean isEqual(DataNumber<T> value);
+    public String toString() {
+        return attribute.toString();
+    }
 }

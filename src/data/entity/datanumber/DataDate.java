@@ -6,8 +6,8 @@ import java.time.Period;
 /**
  * Wrapper class for LocalDate
  * @author Benjamin Held (03-16-2016)
- * @version 0.2.0
- * @since 06-2-2016
+ * @version 0.2.1
+ * @since 07-05-2016
  */
 public class DataDate extends DataNumber<LocalDate> {
     public DataDate(LocalDate attribute) {
@@ -44,7 +44,18 @@ public class DataDate extends DataNumber<LocalDate> {
     }
 
     @Override
-    public boolean isEqual(DataNumber<LocalDate> value) {
-        return this.attribute.toEpochDay() == value.attribute.toEpochDay();
+    public String toString() {
+        return attribute.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof DataDate) {
+            DataDate date = (DataDate) o;
+            return (attribute.getYear() == date.attribute.getYear() &&
+                    attribute.getMonthValue() == date.attribute.getMonthValue() &&
+                    attribute.getDayOfMonth() == date.attribute.getDayOfMonth());
+        }
+        return false;
     }
 }

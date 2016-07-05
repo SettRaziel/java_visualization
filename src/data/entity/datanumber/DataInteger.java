@@ -3,8 +3,8 @@ package data.entity.datanumber;
 /**
  * Wrapper class for Integer
  * @author Benjamin Held (04-02-2016)
- * @version 0.2.0
- * @since 06-2-2016
+ * @version 0.2.1
+ * @since 07-05-2016
  */
 public class DataInteger extends DataNumber<Integer> {
     public DataInteger(Integer attribute) {
@@ -52,8 +52,17 @@ public class DataInteger extends DataNumber<Integer> {
     }
 
     @Override
-    public boolean isEqual(DataNumber<Integer> value) {
-        return this.attribute.equals(value.attribute);
+    public String toString() {
+        return attribute.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof DataInteger) {
+            DataInteger integer = (DataInteger) o;
+            return attribute.equals(integer.attribute);
+        }
+        return false;
     }
 
     public DataInteger clone() {
