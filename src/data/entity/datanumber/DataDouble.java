@@ -3,12 +3,16 @@ package data.entity.datanumber;
 /**
  * Wrapper class for Double
  * @author Benjamin Held (03-26-2016)
- * @version 0.2.1
- * @since 07-05-2016
+ * @version 0.2.2
+ * @since 07-08-2016
  */
 public class DataDouble extends DataNumber<Double> {
     public DataDouble(Double attribute) {
         super(attribute);
+    }
+
+    public DataDouble(String attribute) {
+        super(Double.parseDouble(attribute));
     }
 
     public Double increment() {

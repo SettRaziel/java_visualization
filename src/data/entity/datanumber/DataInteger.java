@@ -3,12 +3,16 @@ package data.entity.datanumber;
 /**
  * Wrapper class for Integer
  * @author Benjamin Held (04-02-2016)
- * @version 0.2.1
- * @since 07-05-2016
+ * @version 0.2.2
+ * @since 07-08-2016
  */
 public class DataInteger extends DataNumber<Integer> {
     public DataInteger(Integer attribute) {
         super(attribute);
+    }
+
+    public DataInteger(String attribute) {
+        super(Integer.parseInt(attribute));
     }
 
     public Integer increment() {

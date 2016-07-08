@@ -6,12 +6,16 @@ import java.time.Period;
 /**
  * Wrapper class for LocalDate
  * @author Benjamin Held (03-16-2016)
- * @version 0.2.1
- * @since 07-05-2016
+ * @version 0.2.2
+ * @since 07-08-2016
  */
 public class DataDate extends DataNumber<LocalDate> {
     public DataDate(LocalDate attribute) {
         super(attribute);
+    }
+
+    public DataDate(String attribute) {
+        super(LocalDate.parse(attribute));
     }
 
     public LocalDate increment() {
