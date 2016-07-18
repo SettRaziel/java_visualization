@@ -6,10 +6,10 @@ import java.util.ArrayList;
 /**
  * Static class to read content from an external csv-file or csv-resource.
  * @author Benjamin Held (02-07-2016)
- * @since 06-30-2016
- * @version 0.1.1
+ * @since 07-18-2016
+ * @version 0.2.0
  */
-public class CSV_Loader {
+public class CSVLoader {
 
     /**
      * Static method to load a csv-file with comma separator
@@ -33,10 +33,10 @@ public class CSV_Loader {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            throw new FileNotFoundException("Error: File " + csvFile + " not found.");
+            throw new FileNotFoundException("Error [CSVLoader]: File " + csvFile + " not found.");
         } catch (IOException e) {
             e.printStackTrace();
-            throw new IOException("IOError while trying to read: "+ csvFile);
+            throw new IOException("IOError [CSVLoader] while trying to read: "+ csvFile);
         } finally {
             closeBufferedReader(br, csvFile);
         }
@@ -66,10 +66,10 @@ public class CSV_Loader {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            throw new FileNotFoundException("Error: Resource " + csvResource + " not found.");
+            throw new FileNotFoundException("Error [CSVLoader]: Resource " + csvResource + " not found.");
         } catch (IOException e) {
             e.printStackTrace();
-            throw new IOException("IOError while trying to read: "+ csvResource);
+            throw new IOException("IOError [CSVLoader] while trying to read: "+ csvResource);
         } finally {
             closeBufferedReader(br, csvResource.toString());
         }
@@ -88,7 +88,7 @@ public class CSV_Loader {
                 br.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("IOError while trying to close resource: " + resource);
+                System.out.println("IOError [CSVLoader] while trying to close resource: " + resource);
             }
         }
     }

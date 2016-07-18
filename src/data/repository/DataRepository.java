@@ -4,7 +4,7 @@ import data.entity.MetaData;
 import data.entity.DataSeries;
 import data.factory.DataFactory;
 import data.factory.MetaDataFactory;
-import data.loader.CSV_Loader;
+import data.loader.CSVLoader;
 import exception.MetaDataException;
 
 import java.io.IOException;
@@ -15,8 +15,8 @@ import java.util.Set;
 /**
  * Singleton class to serve as a storage for the data series
  * @author Benjamin Held (05-16-2016)
- * @since 06-30-2016
- * @version 0.1.3
+ * @since 07-18-2016
+ * @version 0.1.4
  */
 public class DataRepository {
     private volatile static DataRepository instance;
@@ -45,7 +45,7 @@ public class DataRepository {
      */
     public MetaData addDataSeries(String filename) throws MetaDataException {
         try {
-            ArrayList<String[]> raw_data = CSV_Loader.loadSingleLine(filename);
+            ArrayList<String[]> raw_data = CSVLoader.loadSingleLine(filename);
             MetaData metaData = MetaDataFactory.parseMetaData(extractMetaData(raw_data));
             raw_data.subList(0,4).clear();
             DataSeries data = DataFactory.parseData(metaData, raw_data);
