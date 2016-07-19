@@ -6,8 +6,8 @@ import java.time.Period;
 /**
  * Wrapper class for LocalDate
  * @author Benjamin Held (03-16-2016)
- * @version 0.2.2
- * @since 07-08-2016
+ * @version 0.2.3
+ * @since 07-19-2016
  */
 public class DataDate extends DataNumber<LocalDate> {
     public DataDate(LocalDate attribute) {
@@ -35,6 +35,14 @@ public class DataDate extends DataNumber<LocalDate> {
 
     public DataDate clone() {
         return new DataDate(attribute);
+    }
+
+    public static DataDate getMax() {
+        return new DataDate(LocalDate.MAX);
+    }
+
+    public static DataDate getMin() {
+        return new DataDate(LocalDate.MIN);
     }
 
     @Override
