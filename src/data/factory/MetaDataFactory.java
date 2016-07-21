@@ -15,8 +15,8 @@ import java.util.ArrayList;
 /**
  * Static factory class to create meta data from given input data
  * @author Benjamin Held (05-15-2016)
- * @version 0.1.1
- * @since 07-04-2016
+ * @version 0.1.2
+ * @since 07-21-2016
  */
 public class MetaDataFactory {
     public static MetaData parseMetaData(ArrayList<String[]> input) throws MetaDataException {
@@ -47,7 +47,7 @@ public class MetaDataFactory {
                         new DataDate(LocalDate.parse(line[3].trim(), DateTimeFormatter.ofPattern("dd.MM.yyyy"))),
                         Integer.parseInt(line[4].trim()));
             default:
-                throw new MetaDataException("Error while parsing metadata: no valid type for data domain.");
+                throw new MetaDataException("Error [MetaDataFactory]: no valid type for data domain.");
         }
     }
 
@@ -55,7 +55,7 @@ public class MetaDataFactory {
         try {
             return new DataType(line[0].trim(), line[1].trim(), line[2].trim());
         } catch (ArrayIndexOutOfBoundsException ex) {
-            throw new MetaDataException("Not enough arguments to create valid meta data information.");
+            throw new MetaDataException("Error [MetaDataFactory]: Not enough arguments for valid meta data object.");
         }
     }
 }
