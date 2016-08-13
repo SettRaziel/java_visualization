@@ -8,8 +8,8 @@ import java.util.Set;
 /**
  * Class to store a series of data sets.
  * @author Benjamin Held (04-30-2016)
- * @version 0.1.2
- * @since 07-06-2016
+ * @version 0.1.3
+ * @since 08-13-2016
  */
 public class DataSeries {
     /** HashMap to store a series of data */
@@ -40,7 +40,7 @@ public class DataSeries {
                 return dataList.get(dataNumber);
             }
         }
-        throw new IllegalArgumentException("Didn't found dataset to key: " + key.toString());
+        throw new IllegalArgumentException("Error [DataSeries]: Didn't found dataset to key: " + key.toString());
     }
 
     public Set<DataNumber> getKeyset() {
