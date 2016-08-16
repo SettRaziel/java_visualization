@@ -1,4 +1,4 @@
-package gui.colortable;
+package output.colortable;
 
 import java.awt.*;
 import java.util.ArrayList;
