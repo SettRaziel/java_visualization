@@ -1,6 +1,7 @@
 package run;
 
 import data.repository.DataRepository;
+import exception.MetaDataException;
 
 /**
  * Main program to start the application
@@ -9,7 +10,7 @@ import data.repository.DataRepository;
  * @version 0.1.0
  */
 public class Runner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MetaDataException {
         DataRepository repository = DataRepository.getInstance();
         repository.addDataSeries("/path/to/csv");
 
